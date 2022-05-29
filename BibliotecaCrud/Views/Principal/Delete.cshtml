@@ -1,0 +1,27 @@
+﻿@model LibraryModel;
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+  <div class="card-header">
+    Eliminar Libro del inventario
+  </div>
+  <div class="card-body">
+      
+      <form asp-action="Delete" asp-controller="Principal" method="post">
+          <input asp-for="IdBook" type="hidden" class="form-control">
+          <div class="alert alert-danger" role="alert">
+            Desea Eliminar el Libro: @Html.DisplayTextFor(n => n.Title)?
+            </div>
+
+  <button type="submit" class="btn btn-danger">Eliminar</button>
+  <a  asp-action="showList" asp-controller="Principal" class="btn btn-warning">Volver a la lista</a>
+</form>
+  </div>
+</div>
+
+
+
+

@@ -1,0 +1,45 @@
+﻿@model List<LibraryModel>
+@{
+    ViewData["Title"] = "showList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+  <div class="card-header">
+    Inventario de Libros
+  </div>
+  <div class="card-body">
+          <table class="table table-striped custab">
+    <thead>
+    <a asp-action="save" asp-controller="Principal" class="btn btn-primary btn-xs pull-right"><b>+</b>Agregar Nuevo Libro</a>
+        <tr>
+            <th>ID</th>
+            <th>Titulo</th>
+            <th>Categoria</th>
+            <th>Autor</th>
+            <th>Editorial</th>
+            <th>Cantidad</th>
+            <th class="text-center">Accion</th>
+        </tr>
+    </thead>
+            @foreach (var item in Model)
+            {
+             <tr>
+                <td>@item.IdBook</td>
+                <td>@item.Title</td>
+                <td>@item.Category</td>
+                <td>@item.Author</td>
+                <td>@item.Editorial</td>
+                <td>@item.Amount</td>
+                <td class="text-center">
+                    <a asp-action="Edit" asp-controller="Principal" asp-route-bookId="@item.IdBook" class='btn btn-info btn-xs'><span class="glyphicon glyphicon-edit"></span> Edit</a> 
+                    <a asp-action="Delete" asp-controller="Principal" asp-route-bookId="@item.IdBook" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a>
+                </td>
+            </tr>
+            }
+    </table>
+  </div>
+</div>
+
+
+
