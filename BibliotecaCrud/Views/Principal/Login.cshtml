@@ -26,8 +26,10 @@
                   <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
                 </svg>
                 <form action="@Url.Action("Login", "Principal")" method="post">
-                  <input type="text" name="Email" id="" class="form-control my-4 py-2" placeholder="Usuario" />
-                  <input type="password" name="Password" id="" class="form-control my-4 py-2" placeholder="Contrasena" />
+                  <input type="text" name="Email" id="" class="form-control my-4 py-2" placeholder="Usuario" required oninvalid="this.setCustomValidity('Ingrese el Correo')"
+  oninput="this.setCustomValidity('')"  />
+                  <input type="password" name="Password" id="" class="form-control my-4 py-2" placeholder="Contraseña" required oninvalid="this.setCustomValidity('Ingrese la contraseña')"
+  oninput="this.setCustomValidity('')" />
                   
                   @if(ViewData["Message"] != null)
                   {

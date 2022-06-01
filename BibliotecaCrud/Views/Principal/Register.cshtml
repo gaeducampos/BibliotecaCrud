@@ -1,4 +1,4 @@
-﻿
+﻿@model User
 @{
     ViewData["Title"] = "Register";
     Layout = null;
@@ -27,9 +27,15 @@
                   <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
                 </svg>
                 <form action="@Url.Action("Register", "Principal")" method="post">
-                  <input type="text" name="Email" id="" class="form-control my-4 py-2" placeholder="Correo" />
-                  <input type="password" name="Password" id="" class="form-control my-4 py-2" placeholder="Contrasena" />
-                  <input type="password" name="ConfirmPassword" id="" class="form-control my-4 py-2" placeholder="Confirmar Contrasena" />
+                  <input type="text" name="Email" id="" class="form-control my-4 py-2" placeholder="Correo" required oninvalid="this.setCustomValidity('Ingrese su correo')"
+  oninput="this.setCustomValidity('')"/>
+                   <span asp-validation-for="Email" class="text-danger"></span>
+                  <input type="password" name="Password" id="" class="form-control my-4 py-2" placeholder="Contraseña" required  required oninvalid="this.setCustomValidity('Ingrese la contraseña')"
+  oninput="this.setCustomValidity('')"/>
+                  <span asp-validation-for="Password" class="text-danger"></span>
+                  <input type="password" name="ConfirmPassword" id="" class="form-control my-4 py-2" placeholder="Confirmar Contraseña" required  required oninvalid="this.setCustomValidity('Confirme su contraseña')"
+  oninput="this.setCustomValidity('')" />
+                  <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
                   <div class="text-center mt-3">
                   @if(ViewData["Message"] != null)
                   {
